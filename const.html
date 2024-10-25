@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        //.... 1. ....//
+
+        // function person(firstname,lastname,age){
+        //     this.firstname = firstname;
+        //     this.lastname = lastname;
+        //     this.age = age;
+
+        //     this.showDetail = function (name) {
+        //         console.log(`Hai! ${name} my name is ${this.firstname} ${this.lastname}, you can call me ${this.firstname} i'am ${this.age}th years old!`)
+        //     }
+        // }
+
+        // const subhi= new person("muhammad","subhi","25");
+        // subhi.showDetail("everyone");
+
+        // const ricky= new person("Ricky","Risman","99");
+        // ricky.showDetail("leni");
+
+        //.... 2. ....//
+
+        // function persegiPanjang(panjang,lebar){
+        //     this.panjang = panjang;
+        //     this.lebar = lebar; 
+
+        //     this.luas = function (){
+        //         console.log(`L = ${this.panjang} x ${this.lebar} = ${this.panjang * this.lebar}`)
+        //     }
+        //     this.keliling = function (){
+        //         console.log(`K = 2 x (${this.panjang} + ${this.lebar}) = ${2*(this.panjang + this.lebar)}`)
+        //     }
+        // }
+
+        // const persegi= new persegiPanjang("15","5")
+        // persegi.luas()
+
+        // const kotak= new persegiPanjang("29","8")
+        // kotak.keliling()
+
+        //.... 3. ....//
+
+        // class rekening {
+        //     constructor (norek, saldo){
+        //         this.saldo = saldo;
+        //         this.norek = norek;
+        //     }
+        
+        //     setorTunai(nominal){
+        //         return(this.saldo = nominal + this.saldo)
+        //     }
+        //     tarikTunai(nominal){
+        //         return(this.saldo = nominal + this.saldo)
+        //     }
+        // }
+        
+        // let o = new rekening (123456, 50000);
+        // console.log(o.setorTunai(10000));
+        // console.log(o.tarikTunai(20000));
+        
+        // let p = new rekening (123456, 1000000);
+        // console.log(o.setorTunai(10000));
+        // console.log(o.tarikTunai(20000));
+        
+        // let r = new rekening (123456, 2000000);
+        // console.log(o.setorTunai(10000));
+        // console.log(o.tarikTunai(20000));
+
+        //.... 5. ....//
+
+//         class book {
+//             constructor(title,author,year,price) {
+//                 this.title = title;
+//                 this.author = author;
+//                 this.year = year;
+//             }
+//                 bookdetails(){
+//                     console.log(`judul : ${this.title} 
+// penulis : ${this.author} 
+// tahun terbit : ${this.year}`)
+//                 }
+//         }
+//         class Ebook extends book {
+//             constructor(title,author,year,price){
+//                 super(title,author,year)
+//                 this.price = price;
+//             }
+//             Ebook(){
+//                 super.bookdetails();
+//                 console.log(`Dengan harga ${this.price}`);
+//             }
+//         }
+//         const subhi= new Ebook("Cinta Segitiga","Arfan","12-10-2020",'6400000');
+//         subhi.Ebook();
+
+//         const kiki = new Ebook("Janji","Tere Liye","2021","120000");
+//         kiki.Ebook();
+
+        //.... 6. ....//
+        
+class Employee {
+    constructor(nama, gaji) {
+        this.nama = nama;
+        this.gaji = gaji;
+    }
+
+    hitungGajiTahunan() {
+       return `nama:${this.nama} 
+       gaji bulanan:${this.gaji}`;
+    }
+}
+
+class manager extends Employee {
+    constructor(nama, gaji, departemen) {
+    super(nama, gaji);
+    this.departemen = departemen;
+    }
+
+    HitungGajiTahunan2(nama) {
+        super.hitungGajiTahunan();
+        return `manajer:${nama}
+        departemen:${this.departemen} 
+       gaji tahunan:${12 * this.gaji + (this.gaji / 10)}`;
+    }
+}
+
+const leni = new manager ('Ricky','1000000', 'ASTON') ;
+leni.HitungGajiTahunan2('')
+console.log(leni.HitungGajiTahunan2());
+
+
+// soal 7
+
+class Produk {
+    constructor(idProduk,nama,harga) {
+        this.idProduk = idProduk;
+        this.nama = nama;
+        this.harga = harga;
+    }
+    
+    elektronikProduk(qty) {
+        return `id produk:${this.idProduk}
+nama produk:${this.nama}
+harga:${this.harga * qty} `;
+    }
+}
+
+
+class elektronikProduk extends Produk{
+    constructor (idProduk, nama, harga, masaGaransi) {
+        super.Produk;
+        this.masaGaransi = masaGaransi;
+    }
+    
+    elektronikProduk() {
+        super.Produk(qty);
+        console.log (`id produk:${this.idProduk}
+        nama produk:${this.nama}
+        harga:${this.harga * qty + this.masaGaransi} `);
+    }
+}
+let a = new Produk ('1','leni','7000');
+a.elektronikProduk('5');
+console.log(a.elektronikProduk(5));
+</script> 
+</body>
+</html>
